@@ -1,1 +1,25 @@
-(()=>{var o={661:o=>{o.exports=function(o){return"<b>"+o+"</b>"},o.exports.boldTagName="b",o.exports=function(o){return"<b>"+o+"</b>"},o.exports.boldTagName="b"}},r={};function e(t){var n=r[t];if(void 0!==n)return n.exports;var a=r[t]={exports:{}};return o[t](a,a.exports,e),a.exports}e.n=o=>{var r=o&&o.__esModule?()=>o.default:()=>o;return e.d(r,{a:r}),r},e.d=(o,r)=>{for(var t in r)e.o(r,t)&&!e.o(o,t)&&Object.defineProperty(o,t,{enumerable:!0,get:r[t]})},e.o=(o,r)=>Object.prototype.hasOwnProperty.call(o,r),(()=>{"use strict";var o=e(661),r=e.n(o);function t(o){return"<i>"+o+"</i>"}var n=!0;function a(o){var e=n?r():t;return n=!n,"Hello! ".concat(e(o),"!")}console.log(a("정환")),console.log(a("정환")),console.log(o.boldTagName),console.log("i"),[1,2,3].map((function(o){return o+1}))})()})();
+"use strict";
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.sayHello = sayHello;
+var _bold = _interopRequireWildcard(require("./bold"));
+var _italic = _interopRequireWildcard(require("./italic"));
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+var isBold = true;
+function sayHello(name) {
+  var formatter = isBold ? _bold["default"] : _italic["default"];
+  isBold = !isBold;
+  return "Hello! ".concat(formatter(name), "!");
+}
+console.log(sayHello("정환")); // 'Hello! <b>정환</b>!'
+console.log(sayHello("정환")); // 'Hello! <i>정환</i>!'
+console.log(_bold.boldTagName); // 'b'
+console.log(_italic.italicTagName); // 'i'
+
+[1, 2, 3].map(function (n) {
+  return n + 1;
+});
