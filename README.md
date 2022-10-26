@@ -1,6 +1,6 @@
 # Branch간 내용
 
-## 1. webpackAndBabel
+## 🟥 1. webpackAndBabel
 
 ### package
 
@@ -21,9 +21,10 @@
 ### 수행 결과
 
 index.js - bold.js, italic.js 파일을 번들하여 dist/index.js 생성 및 트랜스파일에 의해 화살표 함수 삭제
+
 subindex.js 파일을 번들하여 dist/subindex.js 생성 및 트랜스파일에 의해 화살표 함수 삭제
 
-## 2. onlyBabel
+## 🟧 2. onlyBabel
 
 ### package
 
@@ -41,7 +42,7 @@ subindex.js 파일을 번들하여 dist/subindex.js 생성 및 트랜스파일�
 
 index.js, bold.js, italic.js , subindex.js 파일들이 각각 트랜스파일에 의해 dist 폴더에 생성되고 화살표함수는 기본함수로 변경
 
-## 3. onlyWebpack
+## 🟨 3. onlyWebpack
 
 ### package
 
@@ -57,6 +58,9 @@ index.js, bold.js, italic.js , subindex.js 파일들이 각각 트랜스파일�
 ### 수행 결과
 
 index.js, bold.js, italic.js , subindex.js 파일들이 webpack에 의해 번들링 될 파일끼리는 번들링 된다.
+
 index.js, bold.js, italic.js => dist/index.js
+
 subindex.js => dist/subindex.js
+
 (화살표함수가 사라지는 트랜스파일링은 아니다.)
