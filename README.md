@@ -107,6 +107,8 @@ tsconfig.json에서 `"module": "commonjs",` 형태로 처리하며 node에서 �
 tsconfig.json에서 `"module": "ES6"` 형태로 처리 commonJs 코드가 ES6 형태로 바뀌지는 않았다. 
 [여전히 남아있는 CommonJS](https://github.com/khw970421/WebpackAndBabel/blob/tsc/dist/ES6/bold.js)
 
+
+# 정리
 내가 이해한 것으로 정리하자면 node 환경에서 commonJS와 esModule이 혼합된 코드는 실행 불가능하다. 
 js의 경우 이를 해결하기 위해 webpack을 통해 번들링 + 컴파일로 node와 브라우저에서 실행할 수 있는 코드로 만들 수 있다. 
 ts의 경우 tsc만으로 혼합된 코드의 tsconfig.json의 module 형태를 commonjs로 하면 esModule 코드를 commonjs 만들어 node에서 실행은 가능하다. 
