@@ -64,3 +64,22 @@ index.js, bold.js, italic.js => dist/index.js
 subindex.js => dist/subindex.js
 
 (화살표함수가 사라지는 트랜스파일링은 아니다.)
+
+## 🟩 4. tsc
+
+### package
+
+```js
+```
+
+* global로 tsc 존재
+
+### 삭제 파일
+
+1. webpack.config.js
+
+### 수행 결과
+
+index.js, bold.js, italic.js , subindex.js 파일들이 tsc에 의해 dist 파일에 각각 컴파일되어 만들어진다. (webpack 번들링은 아니니까) 
+
+대신, 기존에 ts에서 esmodule과 commonjs를 혼합한 상태에서 통일된 js로 바뀌면서 dist/js 파일의 index.js 파일을 node에서 실행하면 정상적으로 실행된다. 
