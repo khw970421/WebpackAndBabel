@@ -86,7 +86,7 @@ index.js, bold.js, italic.js , subindex.js 파일들이 tsc에 의해 dist 파�
 
 
 # CommonJS + ESModule의 실행을 하는 방법
-## 1. JS 파일에서만 생각
+## 1. JS 파일에서만 생각 - Webpack
 index.js는 commonJS 형태의 bold.js와 esmodule 형태의 italic.js를 import하고 있다. 
 기본적으로 해당 index.js는 node에서 실행이 불가능하다. 
 하지만, Webpack을 이용하여 번들링 + 컴파일을 통해 브라우저와 node에서 실행가능한 파일로 만들어 실행시킬 수 있다. 
@@ -94,7 +94,7 @@ index.js는 commonJS 형태의 bold.js와 esmodule 형태의 italic.js를 import
 https://github.com/khw970421/WebpackAndBabel/blob/onlyWebpack/dist/index.js
 (해당 파일은 node.js 및 브라우저에서 실행가능한 index.js 파일이다.)
 
-## 2. TS 파일에서만 생각
+## 2. TS 파일에서만 생각 - tsc
 index.ts는 commonJS 형태의 bold.ts와 esmodule 형태의 italic.ts를 import하고 있다. 
 기본적으로 해당 index.ts는 node에서 실행이 불가능하다. ( ts-node를 이용해 ts-node index.ts를 하면 `__ is not a module.` 관련 에러 발생 
 (물론 이를 위해서 tsconfig.json의 "esModuleInterop": true 부분을 추가하여야한다. - https://www.typescriptlang.org/tsconfig#esModuleInterop)
@@ -104,5 +104,13 @@ tsconfig.json에서 `"module": "commonjs",` 형태로 처리하며 node에서 �
 [require사용](https://github.com/khw970421/WebpackAndBabel/blob/tsc/dist/commonJS/index.js)
 
 ### ESModule 코드로 만들기
-tsconfig.json에서 `"module": "ES6"` 형태로 처리하며 node가 아닌 브라우저에서 실행할 수 있는 파일들로 바뀌게 된다. 
+tsconfig.json에서 `"module": "ES6"` 형태로 처리 commonJs 코드가 ES6 형태로 바뀌지는 않았다. 
+[여전히 남아있는 CommonJS](https://github.com/khw970421/WebpackAndBabel/blob/tsc/dist/ES6/bold.js)
+
+내가 이해한 것으로 정리하자면 node 환경에서 commonJS와 esModule이 혼합된 코드는 실행 불가능하다. 
+js의 경우 이를 해결하기 위해 webpack을 통해 번들링 + 컴파일로 node와 브라우저에서 실행할 수 있는 코드로 만들 수 있다. 
+ts의 경우 tsc만으로 혼합된 코드의 tsconfig.json의 module 형태를 commonjs로 하면 esModule 코드를 commonjs 만들어 node에서 실행은 가능하다. 
+하지만, tsconfig.json의 module 형태를 es6로 해도 commonJs 형태의 코드를 esModule 형태로 바뀌지는 않았다. (결국 브라우저에서 못 실행하지)
+즉, commonJS와 esModule이 혼합된 ts도 Webpack을 이용해 commonjs와 esModule에서 동작할 수 있는 코드로 번들링 + 컴파일을 하는게 맞지않을까 생각이든다. 
+  
 
