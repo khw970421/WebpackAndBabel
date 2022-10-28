@@ -82,7 +82,7 @@ subindex.js => dist/subindex.js
 
 index.js, bold.js, italic.js , subindex.js 파일들이 tsc에 의해 dist 파일에 각각 컴파일되어 만들어진다. (webpack 번들링은 아니니까) 
 
-대신, 기존에 ts에서 esmodule과 commonjs를 혼합한 상태에서 통일된 js로 바뀌면서 dist/js 파일의 index.js 파일을 node에서 실행하면 정상적으로 실행된다. 
+대신, 기존에 ts에서 esmodule과 commonJs를 혼합한 상태에서 통일된 js로 바뀌면서 dist/js 파일의 index.js 파일을 node에서 실행하면 정상적으로 실행된다. 
 
 
 # CommonJS + ESModule의 실행을 하는 방법
@@ -114,10 +114,10 @@ tsconfig.json에서 `"module": "ES6"` 형태로 처리 commonJs 코드가 ES6 �
 내가 이해한 것으로 정리하자면 node 환경에서 commonJS와 esModule이 혼합된 코드는 실행 불가능하다. <br>
 js의 경우 이를 해결하기 위해 webpack을 통해 번들링 + 컴파일로 node와 브라우저에서 실행할 수 있는 코드로 만들 수 있다. <br>
 
-ts의 경우 tsc만으로 혼합된 코드의 tsconfig.json의 module 형태를 commonjs로 하면 esModule 코드를 commonjs 만들어 node에서 실행은 가능하다. <br>
+ts의 경우 tsc만으로 혼합된 코드의 tsconfig.json의 module 형태를 commonJs로 하면 esModule 코드를 commonjs 만들어 node에서 실행은 가능하다. <br>
 하지만, tsconfig.json의 module 형태를 es6로 해도 commonJs 형태의 코드를 esModule 형태로 바뀌지는 않았다. (결국 브라우저에서 못 실행하지) <br>
 
-즉, commonJS와 esModule이 혼합된 ts도 Webpack을 이용해 commonjs와 esModule에서 동작할 수 있는 코드로 번들링 + 컴파일을 하는게 맞지않을까 생각이든다. <br>
+즉, commonJS와 esModule이 혼합된 ts도 Webpack을 이용해 commonJs와 esModule에서 동작할 수 있는 코드로 번들링 + 컴파일을 하는게 맞지않을까 생각이든다. <br>
 `cjs-to-es6`와 같은 commonJS 코드를 es6로 바꾸는 npm 패키지도 존재하기도한다. 
 
 결국, import export를 사용한 esModule은 필요에 따라 js파일이든 ts파일이든 Node에서 동작하는 CommonJS 형태로 바꿀수도 있고 유용하다는 생각이 든다. 
