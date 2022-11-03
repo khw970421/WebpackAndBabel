@@ -84,6 +84,8 @@ index.js, bold.js, italic.js , subindex.js 파일들이 tsc에 의해 dist 파�
 
 대신, 기존에 ts에서 esmodule과 commonJs를 혼합한 상태에서 통일된 js로 바뀌면서 dist/js 파일의 index.js 파일을 node에서 실행하면 정상적으로 실행된다. 
 
+* 22-11-03 `esModuleInterop`를 true로 설정해도 commonJS와 ESModule을 합한 것이 에러가 발생하기도 한다. 확실한 것은 전부 다 ESModule로 만들고
+TS를 JS로 컴파일 하는 과정에서 필요에 따라 commonJS 혹은 ES6 형태로 컴파일을 하면 되지 않나 싶다. (애초 혼합된 모듈 사용을 지양하는게 낫지않을까싶다.)
 
 # CommonJS + ESModule의 실행을 하는 방법
 ## 1. JS 파일에서만 생각 - Webpack
